@@ -1,5 +1,5 @@
 {
-    "name": "Kalkulator VAT",
+    "name": "Calculator VAT",
     "version": "1.0.0",
     "manifest_version": 2,
     "description": "",
@@ -18,7 +18,7 @@
         "128": "./images/128.png"
       },
     "browser_action": {
-        "default_title": "Kalkulator VAT",
+        "default_title": "Calculator VAT",
         "default_popup": "popup.html"
     },
 
