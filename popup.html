@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KalkulatorVAT</title>
+
+</head>
+<style>
+    body {
+        margin: 0px;
+        border: 3px solid #f3de20;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .popup {
+        min-width: 400px;
+        min-height: 400px;
+        background: #0b0c00;
+        color: white;
+        font-weight: bold;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+    }
+
+    .yellow {
+        color: #f3de20;
+    }
+
+    .popup input {
+        background-color: #161618;
+        margin-bottom: .5rem;
+        color: white;
+        width: 5rem;
+        height: 1.5rem;
+        border: 2px solid rgb(82, 82, 78);
+        font-weight: bold;
+        font-size: large;
+        margin-bottom: 1.5rem;
+    }
+
+    .popup input:hover {
+        text-decoration: none;
+    }
+
+    hr {
+        height: 2px;
+        background-color: #67676e;
+        width: 100%;
+    }
+
+    .input-euro {
+        position: relative;
+    }
+
+    .input-euro.right input {
+        padding-right: 18px;
+        text-align: end;
+    }
+
+    .input-euro:before {
+        position: absolute;
+        top: -1;
+        content: "€";
+        font-size: 1.2rem;
+    }
+
+    .input-euro.right:before {
+        right: 5px;
+    }
+
+
+
+    .input-pln {
+        position: relative;
+    }
+
+    .input-pln.right input {
+        padding-right: 18px;
+        text-align: end;
+    }
+
+    .input-pln:before {
+        position: absolute;
+        top: 0;
+        content: "zł";
+        font-size: .8rem;
+    }
+
+    .input-pln.right:before {
+        right: 5px;
+    }
+
+    #ratecomment {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    #container {
+        text-align: center;
+        padding-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    #refreshsubmit {
+        padding: 0rem;
+        font-weight: bold;
+        font-size: large;
+        margin-left: 1rem;
+    }
+
+    #rate {
+        width: 3rem;
+    }
+
+    #author {
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #author a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #author a:hover {
+        text-decoration: none;
+        color: #f3de20;
+    }
+
+</style>
+
+<body>
+    <div class="popup">
+        <h1>Kalkulator<span class="yellow">VAT</span></h1>
+        <table>
+            <tr>
+                <td>
+                    <span class="input-euro right"><input type="number" id="brutto" min="0.00" max="1000000.00" step="0.01" /></span> BRUTTO
+                </td>
+                <td>
+                    <span class="input-pln right"><input type="number" id="bruttopln" min="0.00" max="1000000.00" step="0.01" readonly></span> BRUTTO<br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="input-euro right"><input type="number" id="vat21" min="0.00" max="1000000.00" step="0.01" readonly></span> VAT (21%)
+                </td>
+                <td>
+                    <span class="input-euro right"><input type="number" id="vat20" min="0.00" max="1000000.00" step="0.01" readonly></span> VAT (20%)<br />
+                </td>
+            </tr>
+            <tr>
+                <td>        
+                    <span class="input-pln right"><input type="number" id="netto21" min="0.00" max="1000000.00" step="0.01" readonly></span> NETTO (21%)
+                </td>
+                <td>        
+                    <span class="input-pln right"><input type="number" id="netto20" min="0.00" max="1000000.00" step="0.01" readonly></span> NETTO (20%)<br />
+                </td>
+            </tr>
+        </table>
+
+
+        <hr>
+        <div id="container">        
+            <span id="ratecomment">1€  = </span><span class="input-pln right"><input type="number" id="rate" min="0.00" max="1000000.00" step="0.01"></span>
+            <input type="button" id="refreshsubmit" value="UPDATE KURS" /></div>
+
+        <p id="outputrate" hidden></p>
+        <p id="author">Created by <a href="https://github.com/zoneel" target="_blank">github.com/zoneel</a></p>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

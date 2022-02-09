@@ -1,0 +1,33 @@
+{
+    "name": "Kalkulator VAT",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "",
+    "background": {
+        "scripts": [
+            "script.js"
+            
+        ],
+        "persistent": true
+    },
+    "icons": {
+        "16": "./images/16.png",
+        "24": "./images/24.png",
+        "32": "./images/32.png",
+        "64": "./images/64.png",
+        "128": "./images/128.png"
+      },
+    "browser_action": {
+        "default_title": "Kalkulator VAT",
+        "default_popup": "popup.html"
+    },
+
+    
+    "permissions": [
+        "https://*/*",
+        "http://*/*",
+        "tabs",
+        "storage"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
